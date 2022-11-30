@@ -1,12 +1,36 @@
 import { Provider } from 'react-redux';
 import { persistor, store } from '@core/reducers';
 import { PersistGate } from 'redux-persist/integration/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter } from 'react-router-dom';
+import GlobalStyle from '@styles/globalStyles';
+import MainRoutes from '@pages/routes';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false
+      // onError: handlerError
+      // suspense: true
+    },
+    mutations: {
+      // onError: handlerError
+    }
+  }
+});
 
 function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <div className="App" />
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <MainRoutes />
+            <GlobalStyle />
+          </BrowserRouter>
+        </QueryClientProvider>
       </PersistGate>
     </Provider>
   );

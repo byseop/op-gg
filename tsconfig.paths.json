@@ -5,7 +5,8 @@
       "@core/*": ["src/core/*"],
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
-      "@interfaces/*": ["src/interfaces/*"]
+      "@interfaces/*": ["src/interfaces/*"],
+      "@styles/*": ["src/styles/*"]
     }
   }
 }
