@@ -4,7 +4,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '@styles/globalStyles';
-import MainRoutes from '@pages/routes';
+import MainContainer from './MainContainr';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,7 +27,7 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
-            <MainRoutes />
+            <MainContainer />
             <GlobalStyle />
           </BrowserRouter>
         </QueryClientProvider>
