@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
     'sans-serif';
   }
   :root {
+    --white1: #fff;
+    --bg-primary1: #1ea1f7;
+    --text-placeholder-gray: #727272;
+    --text-input-gray: #202d37;
   }
 
   body {
