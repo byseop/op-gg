@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '@styles/globalStyles';
 import MainRoutes from '@pages/routes';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ function App() {
             <MainRoutes />
             <GlobalStyle />
           </BrowserRouter>
+          <ReactQueryDevtools />
         </QueryClientProvider>
       </PersistGate>
     </Provider>

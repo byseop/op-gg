@@ -6,7 +6,11 @@ export const queryKey = {
 };
 
 export const useGetSummoner = (name: string) => {
-  return useQuery(queryKey.getSummonerInfo(name), () =>
-    summonerApi.getSummonerInfo(name)
+  return useQuery(
+    queryKey.getSummonerInfo(name),
+    () => summonerApi.getSummonerInfo(name),
+    {
+      suspense: true
+    }
   );
 };

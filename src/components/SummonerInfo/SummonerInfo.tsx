@@ -1,13 +1,13 @@
-import { useParams } from 'react-router-dom';
 import { useGetSummoner } from '@core/query/summoner';
 
 interface IProps {
   className?: string;
+  summonerName: string;
 }
 
-const SummonerInfo: React.FC<IProps> = ({ className }) => {
-  const { summonerName } = useParams<{ summonerName: string }>();
+const SummonerInfo: React.FC<IProps> = ({ className, summonerName }) => {
   const { data } = useGetSummoner(summonerName as string);
+
   console.log(data);
 
   return (

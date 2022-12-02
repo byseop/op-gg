@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetSummoner } from '@core/query/summoner';
 import SummonerInfo from '@components/SummonerInfo';
+import * as SummonerStats from '@components/SummonerStats';
 
 interface IProps {
   className?: string;
@@ -8,16 +9,22 @@ interface IProps {
 
 const Summoners: React.FC<IProps> = ({ className }) => {
   const { summonerName } = useParams<{ summonerName: string }>();
-  useGetSummoner(summonerName as string);
-
   return (
     <section className={`${className} summoners-content`}>
-      <div className="section-wrap">
-        <div className="content-inner">
-          <SummonerInfo />
+      <Suspense>
+        <div className="section-wrap">
+          <div className="content-inner">
+            <SummonerInfo summonerName={summonerName || ''} />
+          </div>
         </div>
-      </div>
-      <div className="content-inner"></div>
+        <div className="content-inner">
+          <div className="summoner-record">
+            <div className="summoner-stats">
+              <SummonerStats.League summonerName={summonerName || ''} />
+            </div>
+          </div>
+        </div>
+      </Suspense>
     </section>
   );
 };

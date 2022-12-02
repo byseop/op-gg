@@ -28,12 +28,18 @@ const GlobalStyle = createGlobalStyle`
     --bg-primary1: #1ea1f7;
     --bg-gray1: #eaeaea;
     --bg-gray2: #e0e3e3;
+    --bg-white1: #f2f2f2;
     --text-placeholder-gray: #727272;
     --text-input-gray: #202d37;
     --text-gray1: #657070;
+    --text-gray2: #879292;
     --text-black1: #242929;
+    --text-black2: #353a3a;
+    --text-black3: #555e5e;
+    --text-primary1: #1f8ecd;
     --border-gray1: #d0d3d4;
     --border-gray2: #d8d8d8;
+    --border-gray3: #cdd2d2;
   }
 
   body {
@@ -42,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+  }
+
+  strong {
+    font-weight: bold;
   }
 `;
 

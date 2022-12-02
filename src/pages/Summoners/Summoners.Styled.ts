@@ -14,6 +14,19 @@ const StyledSummoners = styled(Summoners)`
     width: 1000px;
     margin: auto;
   }
+
+  .summoner-record {
+    display: flex;
+    gap: 10px;
+
+    > div {
+      flex: 1;
+    }
+
+    .summoner-stats {
+      max-width: 300px;
+    }
+  }
 `;
 
 export default StyledSummoners;
