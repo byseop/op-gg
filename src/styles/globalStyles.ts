@@ -26,8 +26,12 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --white1: #fff;
     --bg-primary1: #1ea1f7;
+    --bg-gray1: #eaeaea;
+    --bg-gray2: #e0e3e3;
     --text-placeholder-gray: #727272;
     --text-input-gray: #202d37;
+    --text-gray1: #657070;
+    --border-gray1: #d0d3d4;
   }
 
   body {
