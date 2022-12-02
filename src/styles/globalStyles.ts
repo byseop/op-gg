@@ -31,7 +31,9 @@ const GlobalStyle = createGlobalStyle`
     --text-placeholder-gray: #727272;
     --text-input-gray: #202d37;
     --text-gray1: #657070;
+    --text-black1: #242929;
     --border-gray1: #d0d3d4;
+    --border-gray2: #d8d8d8;
   }
 
   body {

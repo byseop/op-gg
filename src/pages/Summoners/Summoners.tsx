@@ -12,9 +12,12 @@ const Summoners: React.FC<IProps> = ({ className }) => {
 
   return (
     <section className={`${className} summoners-content`}>
-      <div className="content-inner">
-        <SummonerInfo />
+      <div className="section-wrap">
+        <div className="content-inner">
+          <SummonerInfo />
+        </div>
       </div>
+      <div className="content-inner"></div>
     </section>
   );
 };
