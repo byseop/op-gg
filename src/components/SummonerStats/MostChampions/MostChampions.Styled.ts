@@ -29,6 +29,11 @@ const StyledMostChampions = styled(MostChampions)`
           overflow: hidden;
           border-radius: 100%;
 
+          &[data-size='s'] {
+            width: 32px;
+            height: 32px;
+          }
+
           img {
             position: absolute;
             width: 100%;
@@ -73,6 +78,54 @@ const StyledMostChampions = styled(MostChampions)`
             span {
               color: var(--text-gray2);
               font-size: 1.1rem;
+            }
+          }
+        }
+      }
+
+      .champ-winrate {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        .champ-winrate-text {
+          font-size: 1.3rem;
+          color: var(--text-gray2);
+        }
+
+        .champ-chart {
+          .chart {
+            width: 123px;
+            height: 24px;
+            border-radius: 4px;
+            background: var(--chart-winrate2);
+            overflow: hidden;
+            position: relative;
+
+            .winrate-bar {
+              position: absolute;
+              height: 100%;
+              left: 0;
+              top: 0;
+              background: var(--chart-winrate1);
+            }
+
+            &:before,
+            &:after {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              color: var(--white1);
+              font-size: 1.2rem;
+              z-index: 1;
+            }
+            &:before {
+              left: 4px;
+              content: attr(data-wins);
+            }
+            &:after {
+              right: 4px;
+              content: attr(data-losses);
             }
           }
         }

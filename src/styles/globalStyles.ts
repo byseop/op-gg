@@ -47,6 +47,9 @@ const GlobalStyle = createGlobalStyle`
     --kda-level-3: #e19205;
     --winrate-level-1: #c6443e;
     --avg-level-1: #e19205;
+
+    --chart-winrate1: #1f8ecd;
+    --chart-winrate2: #ee5a52;
   }
 
   body {

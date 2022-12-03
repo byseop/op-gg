@@ -45,6 +45,8 @@ const MostChampions: React.FC<IProps> = ({ className, summonerName }) => {
         );
       case 'sevenDaysWinRate':
         return <WinRateByDate data={data.recentWinRate} />;
+      default:
+        return null;
     }
   }, [sortType, data]);
 
@@ -114,11 +116,16 @@ const WinRateByChampion: React.FC<{
               <div>
                 <span
                   style={getWinrateColor(
-                    champion.wins / champion.wins + champion.losses
+                    Math.round(
+                      (champion.wins / (champion.wins + champion.losses)) * 100
+                    )
                   )}
                 >
                   <strong>
-                    {champion.wins / champion.wins + champion.losses}%
+                    {Math.round(
+                      (champion.wins / (champion.wins + champion.losses)) * 100
+                    )}
+                    %
                   </strong>
                 </span>
               </div>
@@ -136,7 +143,62 @@ const WinRateByChampion: React.FC<{
 const WinRateByDate: React.FC<{
   data: IWinRate[];
 }> = ({ data }) => {
-  return <div className="winrate">2</div>;
+  return (
+    <div className="winrate">
+      <ul>
+        {data.map((champion, index) => (
+          <li key={'winrate' + champion.id + index}>
+            <div className="champ-overview">
+              <div className="champ-img" data-size="s">
+                <img src={champion.imageUrl} alt={champion.name} />
+              </div>
+              <div className="champ-info">
+                <div className="champ-name">
+                  <span>
+                    <strong>{champion.name}</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="champ-winrate">
+              <div
+                className="champ-winrate-text"
+                style={getWinrateColor(
+                  (champion.wins / (champion.wins + champion.losses)) * 100
+                )}
+              >
+                <span>
+                  <strong>
+                    {Math.round(
+                      (champion.wins / (champion.wins + champion.losses)) * 100
+                    )}
+                    %
+                  </strong>
+                </span>
+              </div>
+              <div className="champ-chart">
+                <div
+                  className="chart"
+                  data-wins={`${champion.wins}승`}
+                  data-losses={`${champion.losses}패`}
+                >
+                  <div
+                    className="winrate-bar"
+                    style={{
+                      width: `${(
+                        (champion.wins / (champion.wins + champion.losses)) *
+                        123
+                      ).toFixed(2)}px`
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 const getKdaColor = (n: number): CSSProperties | undefined => {
