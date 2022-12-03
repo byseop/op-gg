@@ -11,6 +11,7 @@ const StyledLeague = styled(League)`
     padding: 10px 8px;
     background: var(--bg-white1);
     border: 1px solid var(--border-gray3);
+    border-radius: 2px;
 
     .league-medal {
       width: 104px;

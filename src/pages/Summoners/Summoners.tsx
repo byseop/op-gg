@@ -20,7 +20,14 @@ const Summoners: React.FC<IProps> = ({ className }) => {
         <div className="content-inner">
           <div className="summoner-record">
             <div className="summoner-stats">
-              <SummonerStats.League summonerName={summonerName || ''} />
+              <div className="stats">
+                <SummonerStats.League summonerName={summonerName || ''} />
+              </div>
+              <div className="stats">
+                <SummonerStats.MostChampions
+                  summonerName={summonerName || ''}
+                />
+              </div>
             </div>
           </div>
         </div>

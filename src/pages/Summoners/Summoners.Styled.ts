@@ -25,6 +25,12 @@ const StyledSummoners = styled(Summoners)`
 
     .summoner-stats {
       max-width: 300px;
+
+      .stats {
+        & + .stats {
+          margin-top: 8px;
+        }
+      }
     }
   }
 `;

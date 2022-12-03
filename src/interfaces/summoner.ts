@@ -47,3 +47,32 @@ export interface ISummoner {
   profileImageUrl: string;
   url: string;
 }
+
+export interface IChampion {
+  assists: number;
+  cs: number;
+  deaths: number;
+  games: number;
+  id: number;
+  imageUrl: string;
+  key: string;
+  kills: number;
+  losses: number;
+  name: string;
+  rank: number;
+  wins: number;
+}
+
+export interface IWinRate {
+  id: number;
+  imageUrl: string;
+  key: string;
+  losses: number;
+  name: string;
+  wins: number;
+}
+
+export interface ISummonerMostRes {
+  champions: IChampion[];
+  recentWinRate: IWinRate[];
+}
