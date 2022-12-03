@@ -30,6 +30,8 @@ const StyledMostChampions = styled(MostChampions)`
           border-radius: 100%;
 
           &[data-size='s'] {
+            min-width: 32px;
+            min-height: 32px;
             width: 32px;
             height: 32px;
           }

@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
 import TabMenu, { ITabItem } from '@components/TabMenu';
 import { useGetSummonerMost } from '@core/query/summoner';
+import { getWinrateColor, getKdaColor } from '@core/utils/getStyles';
 
 import type { IChampion, IWinRate } from '@interfaces/summoner';
-import { CSSProperties } from 'react';
 
 interface IProps {
   className?: string;
@@ -199,24 +199,4 @@ const WinRateByDate: React.FC<{
       </ul>
     </div>
   );
-};
-
-const getKdaColor = (n: number): CSSProperties | undefined => {
-  if (n >= 5) {
-    return { color: 'var(--kda-level-3)' };
-  }
-  if (n >= 4) {
-    return { color: 'var(--kda-level-2)' };
-  }
-  if (n >= 3) {
-    return { color: 'var(--kda-level-1)' };
-  }
-  return undefined;
-};
-
-const getWinrateColor = (n: number): CSSProperties | undefined => {
-  if (n >= 60) {
-    return { color: 'var(--winrate-level-1)' };
-  }
-  return undefined;
 };
