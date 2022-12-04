@@ -205,7 +205,11 @@ const Overview: React.FC<IProps> = ({ className, summonerName }) => {
                     <span className="pos-winrate">
                       승률{' '}
                       <strong>
-                        {Math.round((pos.wins / (pos.wins + pos.losses)) * 100)}
+                        {pos.wins
+                          ? Math.round(
+                              (pos.wins / (pos.wins + pos.losses)) * 100
+                            )
+                          : 0}
                       </strong>
                       %
                     </span>

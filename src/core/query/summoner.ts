@@ -10,11 +10,15 @@ export const queryKey = {
 };
 
 export const useGetSummoner = (name: string) => {
+  const dispatch = useDispatch();
   return useQuery(
     queryKey.getSummonerInfo(name),
     () => summonerApi.getSummonerInfo(name),
     {
-      suspense: true
+      suspense: true,
+      onSuccess: () => {
+        dispatch(summonerStateSlice.actions.updateRecentlySearch(name));
+      }
     }
   );
 };

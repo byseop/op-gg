@@ -81,6 +81,30 @@ const StyledTabMenu = styled(TabMenu)`
       }
     }
   }
+
+  &[data-type='input-menu'] {
+    ul {
+      display: flex;
+      li {
+        flex-basis: 50%;
+        height: 34px;
+        button {
+          width: 100%;
+          height: 100%;
+          border: none;
+          padding: 0;
+          background: #ebeef1;
+          cursor: pointer;
+        }
+
+        &[data-selected='true'] {
+          button {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default StyledTabMenu;
