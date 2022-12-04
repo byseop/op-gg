@@ -91,7 +91,10 @@ export interface IMatchChampion {
 }
 
 export interface IMatchGame {
-  champion: IMatchChampion;
+  champion: {
+    imageUrl: string;
+    level: string;
+  };
   createDate: number;
   gameId: string;
   gameLength: number;
@@ -108,12 +111,10 @@ export interface IMatchGame {
   };
   mmr: number;
   needRenew: true;
-  peak: [string];
-  spells: [
-    {
-      imageUrl: string;
-    }
-  ];
+  peak: string[];
+  spells: {
+    imageUrl: string;
+  }[];
   stats: {
     general: {
       assist: number;

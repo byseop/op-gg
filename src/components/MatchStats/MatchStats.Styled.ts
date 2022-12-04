@@ -2,9 +2,17 @@ import styled from 'styled-components';
 import MatchStats from './MatchStats';
 
 const StyledMatchStats = styled(MatchStats)`
-  border: 1px solid var(--border-gray3);
   .top-actions {
-    border-bottom: 1px solid var(--border-gray3);
+    border: 1px solid var(--border-gray3);
+  }
+
+  .match-overview-container {
+    border-top: 1px solid var(--border-gray3);
+    background: var(--bg-gray3);
+  }
+
+  .match-list-container {
+    margin 16px 0;
   }
 `;
 

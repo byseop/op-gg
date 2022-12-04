@@ -1,6 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, Suspense } from 'react';
 import TabMenu, { ITabItem } from '@components/TabMenu';
 import Overview from './Overview';
+import MatchList from './MatchList';
 
 interface IProps {
   className?: string;
@@ -37,8 +38,15 @@ const MatchStats: React.FC<IProps> = ({ className, summonerName }) => {
           value={sortType}
           onChange={handleChangeSortType}
         />
+        <div className="match-overview-container">
+          <Overview summonerName={summonerName} />
+        </div>
       </div>
-      <Overview summonerName={summonerName} />
+      <div className="match-list-container">
+        <Suspense>
+          <MatchList summonerName={summonerName} sortType={sortType} />
+        </Suspense>
+      </div>
     </div>
   );
 };

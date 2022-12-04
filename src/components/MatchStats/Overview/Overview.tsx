@@ -17,7 +17,7 @@ const DEFINED_MAX_CHAMPION_COUNT = 3;
 
 const Overview: React.FC<IProps> = ({ className, summonerName }) => {
   const { data } = useGetSummonerMatches(summonerName);
-  console.log(data);
+
   const chartData = useMemo(() => {
     if (!data) return undefined;
     return [
@@ -120,9 +120,7 @@ const Overview: React.FC<IProps> = ({ className, summonerName }) => {
             </div>
             <div className="champ-text">
               <div className="champ-name">
-                <span>
-                  <strong>{champion.name}</strong>
-                </span>
+                <span>{champion.name}</span>
               </div>
               <div className="champ-stats">
                 <span>
