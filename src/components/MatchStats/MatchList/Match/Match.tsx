@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { getGameLength, getRelativeTime } from '@core/utils/time';
 import { useGetMatchQuery } from '@core/query/match';
+import ReactTooltip from 'react-tooltip';
 
 import type { IMatchGame } from '@interfaces/summoner';
 import { Link } from 'react-router-dom';
@@ -121,7 +122,26 @@ const Match: React.FC<IProps> = ({ className, data }) => {
               {new Array(8).fill(true).map((_, index) => (
                 <div className="item" key={`item-${data.gameId}-${index}`}>
                   {data.items[index] && (
-                    <img src={data.items[index].imageUrl} alt="아이템" />
+                    <>
+                      <img
+                        src={data.items[index].imageUrl}
+                        alt="아이템"
+                        data-tip={`${data.gameId}-item-${index}`}
+                        data-for={`${data.gameId}-item-${index}`}
+                      />
+                      <ReactTooltip
+                        id={`${data.gameId}-item-${index}`}
+                        padding="10px 10px"
+                      >
+                        <div className="tooltip">
+                          <p>
+                            평점은 0~10점을 기준으로 경기에 기여한 정도에 따라
+                            차등 부여되며 탈주 등 패배에 결정적인 영향을 끼친
+                            경우 0점에 가까운 점수가 부여됩니다.
+                          </p>
+                        </div>
+                      </ReactTooltip>
+                    </>
                   )}
                 </div>
               ))}

@@ -222,6 +222,15 @@ const StyledMatch = styled(Match)`
           img {
             width: 100%;
           }
+
+          .tooltip {
+            max-width: 280px;
+
+            p {
+              font-size: 1.1rem;
+              line-height: 15px;
+            }
+          }
         }
       }
 

@@ -43,7 +43,9 @@ const MatchStats: React.FC<IProps> = ({ className, summonerName }) => {
         </div>
       </div>
       <div className="match-list-container">
-        <Suspense>
+        <Suspense
+        // fallback={} TODO: fallback 을 추가할 수 있음
+        >
           <MatchList summonerName={summonerName} sortType={sortType} />
         </Suspense>
       </div>

@@ -12,7 +12,9 @@ const Summoners: React.FC<IProps> = ({ className }) => {
   const { summonerName } = useParams<{ summonerName: string }>();
   return (
     <section className={`${className} summoners-content`}>
-      <Suspense>
+      <Suspense
+      // fallback={} TODO: fallback 을 추가할 수 있음
+      >
         <div className="section-wrap">
           <div className="content-inner">
             <SummonerInfo summonerName={summonerName || ''} />
