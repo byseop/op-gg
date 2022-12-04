@@ -17,6 +17,7 @@ const StyledSummoners = styled(Summoners)`
 
   .summoner-record {
     display: flex;
+    flex-direction: row;
     gap: 10px;
 
     > div {

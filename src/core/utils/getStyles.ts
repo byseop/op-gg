@@ -19,3 +19,10 @@ export const getWinrateColor = (n: number): CSSProperties | undefined => {
   }
   return undefined;
 };
+
+export const getAvgColor = (n: number): CSSProperties | undefined => {
+  if (n >= 6) {
+    return { color: 'var(--kda-level-3)' };
+  }
+  return undefined;
+};

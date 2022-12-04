@@ -1,6 +1,10 @@
 import { request } from './';
 
-import type { ISummonerInfoRes, ISummonerMostRes } from '@interfaces/summoner';
+import type {
+  ISummonerInfoRes,
+  ISummonerMostRes,
+  IMatchRes
+} from '@interfaces/summoner';
 
 export const summonerApi = {
   getSummonerInfo: (name: string) =>
@@ -12,6 +16,12 @@ export const summonerApi = {
   getSummonerMost: (name: string) =>
     request<ISummonerMostRes>({
       url: `/summoner/${name}/mostInfo`,
+      method: 'GET'
+    }),
+
+  getSummonerMatches: (name: string) =>
+    request<IMatchRes>({
+      url: `/summoner/${name}/matches`,
       method: 'GET'
     })
 };

@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { useGetSummoner } from '@core/query/summoner';
 import { deromanize } from '@core/utils/deromanize';
+import { useRootState } from '@core/hooks';
+import { positionConstant } from '@core/utils/positionConstant';
 
 interface IProps {
   className?: string;
@@ -14,6 +16,7 @@ const RANK_TYPE_ENUM = {
 
 const League: React.FC<IProps> = ({ className, summonerName }) => {
   const { data } = useGetSummoner(summonerName);
+  const { preferencePosition } = useRootState((state) => state.summonerState);
 
   const soloRank = useMemo(() => {
     if (!data) return undefined;
@@ -32,7 +35,7 @@ const League: React.FC<IProps> = ({ className, summonerName }) => {
   return (
     <div className={`league-container ${className}`}>
       <div className="league">
-        {soloRank ? (
+        {soloRank && preferencePosition ? (
           <>
             <div className="league-medal">
               <img
@@ -46,8 +49,14 @@ const League: React.FC<IProps> = ({ className, summonerName }) => {
               </div>
               <div className="league-games">
                 <span>
-                  <strong>탑</strong> (총{' '}
-                  {(soloRank.wins + soloRank.losses).toLocaleString()}게임)
+                  <strong>
+                    {
+                      positionConstant[
+                        preferencePosition.positionName as keyof typeof positionConstant
+                      ]
+                    }
+                  </strong>{' '}
+                  (총 {preferencePosition.games.toLocaleString()}게임)
                 </span>
               </div>
               <div className="league-tier">
@@ -77,7 +86,7 @@ const League: React.FC<IProps> = ({ className, summonerName }) => {
         ) : null}
       </div>
       <div className="league">
-        {teamRank ? (
+        {teamRank && preferencePosition ? (
           <>
             <div className="league-medal">
               <img
@@ -91,8 +100,14 @@ const League: React.FC<IProps> = ({ className, summonerName }) => {
               </div>
               <div className="league-games">
                 <span>
-                  <strong>탑</strong> (총{' '}
-                  {(teamRank.wins + teamRank.losses).toLocaleString()}게임)
+                  <strong>
+                    {
+                      positionConstant[
+                        preferencePosition.positionName as keyof typeof positionConstant
+                      ]
+                    }
+                  </strong>{' '}
+                  (총 {preferencePosition.games.toLocaleString()}게임)
                 </span>
               </div>
               <div className="league-tier">

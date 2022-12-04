@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import SummonerInfo from '@components/SummonerInfo';
 import * as SummonerStats from '@components/SummonerStats';
+import MatchStats from '@components/MatchStats';
 
 interface IProps {
   className?: string;
@@ -28,6 +29,9 @@ const Summoners: React.FC<IProps> = ({ className }) => {
                   summonerName={summonerName || ''}
                 />
               </div>
+            </div>
+            <div className="summoner-match">
+              <MatchStats summonerName={summonerName || ''} />
             </div>
           </div>
         </div>

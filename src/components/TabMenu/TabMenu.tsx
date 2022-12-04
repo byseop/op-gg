@@ -5,6 +5,7 @@ export interface ITabItem {
 
 interface IProps {
   className?: string;
+  type?: 'win-rate' | 'match-overview';
   items?: ITabItem[];
   value?: ITabItem['value'];
   onChange?: (value: ITabItem['value']) => void;
@@ -12,12 +13,13 @@ interface IProps {
 
 const TabMenu: React.FC<IProps> = ({
   className,
+  type = 'match-overview',
   value,
   items = [],
   onChange
 }) => {
   return (
-    <div className={`${className} tabmenu`}>
+    <div className={`${className} tabmenu`} data-type={type}>
       <ul>
         {items.map((item) => (
           <li key={item.value} data-selected={value === item.value || null}>

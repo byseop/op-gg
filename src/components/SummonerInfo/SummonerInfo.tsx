@@ -8,8 +8,6 @@ interface IProps {
 const SummonerInfo: React.FC<IProps> = ({ className, summonerName }) => {
   const { data } = useGetSummoner(summonerName as string);
 
-  console.log(data);
-
   return (
     <div className={`${className} summoner-info`}>
       <div className="previous-tier">

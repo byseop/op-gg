@@ -33,10 +33,14 @@ const GlobalStyle = createGlobalStyle`
     --text-input-gray: #202d37;
     --text-gray1: #657070;
     --text-gray2: #879292;
+    --text-gray3: #555555;
+    --text-gray4: #666666;
+    --text-gray5: #999999;
     --text-gray-selected1: #5e5e5e;
     --text-black1: #242929;
     --text-black2: #353a3a;
     --text-black3: #555e5e;
+    --text-black4: #333333;
     --text-primary1: #1f8ecd;
     --border-gray1: #d0d3d4;
     --border-gray2: #d8d8d8;

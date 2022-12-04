@@ -27,7 +27,6 @@ const MostChampions: React.FC<IProps> = ({ className, summonerName }) => {
   );
 
   const { data } = useGetSummonerMost(summonerName);
-  console.log(data);
 
   const handleChangeSortType = useCallback((value: ITabItem['value']) => {
     setSortType(value);
@@ -44,7 +43,13 @@ const MostChampions: React.FC<IProps> = ({ className, summonerName }) => {
           />
         );
       case 'sevenDaysWinRate':
-        return <WinRateByDate data={data.recentWinRate} />;
+        return (
+          <WinRateByDate
+            data={data.recentWinRate
+              .slice()
+              .sort((a, b) => b.wins + b.losses - (a.wins + a.losses))}
+          />
+        );
       default:
         return null;
     }
@@ -56,6 +61,7 @@ const MostChampions: React.FC<IProps> = ({ className, summonerName }) => {
         items={MENU_ITEMS}
         value={sortType}
         onChange={handleChangeSortType}
+        type="win-rate"
       />
       {renderWinRate()}
     </div>

@@ -6,10 +6,10 @@ import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 import storage from 'redux-persist/lib/storage';
 import { AnyAction, combineReducers } from '@reduxjs/toolkit';
 
-import counterSlice from './counter';
+import summonerStateSlice from './summoner';
 
 const combineReducer = combineReducers({
-  counter: counterSlice.reducer
+  summonerState: summonerStateSlice.reducer
 });
 
 const rootReducer = (state: RootReducerTypes | undefined, action: AnyAction) =>
