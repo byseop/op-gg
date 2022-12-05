@@ -62,8 +62,15 @@ const Match: React.FC<IProps> = ({ className, data }) => {
             </div>
           </div>
           <div className="match-div-2-bottom">
-            <p>챔피언이름</p>
-            {/* FIXME: 챔피언 이름 알 수 없는데...? */}
+            <p>
+              {
+                data.champion.imageUrl
+                  .split('/')
+                  .slice(-1)[0]
+                  .split('.')
+                  .slice(0, 1)[0]
+              }
+            </p>
           </div>
         </div>
 
